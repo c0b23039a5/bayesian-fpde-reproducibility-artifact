@@ -120,7 +120,7 @@ def test_faithfulness_passes_configured_bootstrap_samples(monkeypatch, tmp_path:
     monkeypatch.setattr(runner, "load_tabular_openml_or_local", lambda *args, **kwargs: [("", payload, "local_smoke")])
     monkeypatch.setattr(runner, "config_hashes_for_job", fake_hashes_for_job)
     monkeypatch.setattr(runner, "evaluate_methods_for_dataset", fake_evaluate_methods_for_dataset)
-    monkeypatch.setattr(runner, "save_line_plot", lambda *args, **kwargs: None)
+    monkeypatch.setattr(runner, "save_metric_boxplot", lambda *args, **kwargs: None)
 
     assert runner.main() == 0
     assert calls == [("hash", 50), ("evaluate", 50)]

@@ -9,7 +9,7 @@ import numpy as np
 import pandas as pd
 
 from bayesian_fpde.metrics import top_k_jaccard
-from bayesian_fpde.plotting import save_line_plot
+from bayesian_fpde.plotting import save_mean_ci_line_plot
 from bayesian_fpde.utils import base_metadata, ensure_dirs, write_csv, write_parquet_or_csv
 from experiments.common import apply_task_id_filter, config_hashes_for_job, explain_indices, load_mode_config, load_tabular_openml_or_local, parser_with_config
 from experiments.public_stability_impl import seed_features as stability_seed_features
@@ -447,7 +447,7 @@ def main() -> int:
     _write_result_set(posterior, results_dir / "posterior_samples_sensitivity.csv", results_dir / "posterior_samples_sensitivity_summary.csv")
     _write_result_set(lambda_df, results_dir / "lambda_hyb_sensitivity.csv", results_dir / "lambda_hyb_sensitivity_summary.csv")
 
-    save_line_plot(
+    save_mean_ci_line_plot(
         posterior,
         x="posterior_samples",
         y="mean_ci_width",
@@ -455,7 +455,7 @@ def main() -> int:
         path=figures_dir / "posterior_samples_mean_ci_width.png",
         title="Posterior sample sensitivity",
     )
-    save_line_plot(
+    save_mean_ci_line_plot(
         lambda_df,
         x="lambda_hyb",
         y="attribution_distance_to_default",

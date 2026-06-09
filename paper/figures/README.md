@@ -10,8 +10,8 @@ These figures were copied from the completed IEEE Access artifact outputs for ma
 | `stability_topk_jaccard_boxplot.png` | `bayesian-fpde-ieee-access-ieee_full/figures_ieee/stability_topk_jaccard_boxplot.png` |
 | `ci_width_vs_training_size.png` | `bayesian-fpde-ieee-access-ieee_full/figures_ieee/ci_width_vs_training_size.png` |
 | `distance_to_full_train_vs_training_size.png` | `bayesian-fpde-ieee-access-ieee_full/figures_ieee/distance_to_full_train_vs_training_size.png` |
-| `deletion_curves_examples.png` | `bayesian-fpde-ieee-access-ieee_full/figures_ieee/deletion_curves_examples.png` |
-| `insertion_curves_examples.png` | `bayesian-fpde-ieee-access-ieee_full/figures_ieee/insertion_curves_examples.png` |
+| `deletion_auc_by_method.png` | `bayesian-fpde-ieee-access-ieee_full/figures_ieee/deletion_auc_by_method.png` |
+| `insertion_auc_by_method.png` | `bayesian-fpde-ieee-access-ieee_full/figures_ieee/insertion_auc_by_method.png` |
 | `posterior_samples_mean_ci_width.png` | `bayesian-fpde-ieee-access-sensitivity-sensitivity_full/figures_ieee_sensitivity/posterior_samples_mean_ci_width.png` |
 | `lambda_hyb_distance_to_default.png` | `bayesian-fpde-ieee-access-sensitivity-sensitivity_full/figures_ieee_sensitivity/lambda_hyb_distance_to_default.png` |
 

@@ -11,7 +11,7 @@ from bayesian_fpde.bootstrap_fpde import bootstrap_fpde_samples
 from bayesian_fpde.datasets import fit_black_box
 from bayesian_fpde.fpde import FPDEConfig
 from bayesian_fpde.metrics import top_k_jaccard
-from bayesian_fpde.plotting import save_line_plot
+from bayesian_fpde.plotting import save_mean_ci_line_plot
 from bayesian_fpde.utils import base_metadata, ensure_dirs, setup_logging, write_csv, write_parquet_or_csv
 from experiments.common import apply_task_id_filter, config_hashes_for_job, explain_indices, load_mode_config, load_tabular_openml_or_local, parser_with_config
 
@@ -209,6 +209,6 @@ def main() -> int:
     write_csv(feature_df, results_dir / "training_size_seed_features.csv")
     metrics = training_size_metrics(feature_df, cfg)
     write_csv(metrics, results_dir / "training_size_uncertainty.csv")
-    save_line_plot(metrics, x="train_fraction", y="mean_ci_width", group="method", path=figures_dir / "ci_width_vs_training_size.png", title="CI width vs training fraction")
-    save_line_plot(metrics, x="train_fraction", y="attribution_distance_to_full_train", group="method", path=figures_dir / "distance_to_full_train_vs_training_size.png", title="Distance to full-training reference")
+    save_mean_ci_line_plot(metrics, x="train_fraction", y="mean_ci_width", group="method", path=figures_dir / "ci_width_vs_training_size.png", title="CI width vs training fraction")
+    save_mean_ci_line_plot(metrics, x="train_fraction", y="attribution_distance_to_full_train", group="method", path=figures_dir / "distance_to_full_train_vs_training_size.png", title="Distance to full-training reference")
     return 0

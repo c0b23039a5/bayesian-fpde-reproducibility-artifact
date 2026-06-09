@@ -4,7 +4,7 @@ from pathlib import Path
 
 import pandas as pd
 
-from bayesian_fpde.plotting import save_line_plot
+from bayesian_fpde.plotting import save_metric_boxplot
 from bayesian_fpde.utils import ensure_dirs, setup_logging, write_csv
 from experiments.common import apply_task_id_filter, config_hashes_for_job, evaluate_methods_for_dataset, load_mode_config, load_tabular_openml_or_local, parser_with_config
 
@@ -77,8 +77,8 @@ def main() -> int:
             logger.info("faithfulness completed dataset=%s seed=%s", dataset_name, seed)
     df = pd.concat(frames, ignore_index=True) if frames else pd.DataFrame()
     write_csv(df, results_dir / "faithfulness_metrics.csv")
-    save_line_plot(df, x="explained_order", y="deletion_auc", group="method", path=figures_dir / "deletion_curves_examples.png", title="Deletion AUC examples")
-    save_line_plot(df, x="explained_order", y="insertion_auc", group="method", path=figures_dir / "insertion_curves_examples.png", title="Insertion AUC examples")
+    save_metric_boxplot(df, metric="deletion_auc", path=figures_dir / "deletion_auc_by_method.png", title="Deletion AUC by method")
+    save_metric_boxplot(df, metric="insertion_auc", path=figures_dir / "insertion_auc_by_method.png", title="Insertion AUC by method")
     return 0
 
 
